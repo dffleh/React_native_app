@@ -6,6 +6,15 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy";
 
 const StartPage = () => {
   const handleStartPress = () => {};
@@ -17,6 +26,10 @@ const StartPage = () => {
   const handleImageError = () => {
     setImageError(true);
   };
+
+  // const adUnitId = __DEV__
+  //   ? TestIds.BANNER
+  //   : "ca-app-pub-1728967763465520/6391726644";
 
   return (
     <View style={styles.container}>
@@ -37,6 +50,13 @@ const StartPage = () => {
         <TouchableOpacity style={styles.button} onPress={handleExitPress}>
           <Text style={styles.buttonText}>Exit</Text>
         </TouchableOpacity>
+        <BannerAd
+          unitId={adUnitId}
+          size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+          requestOptions={{
+            requestNonPersonalizedAdsOnly: true,
+          }}
+        />
       </ImageBackground>
     </View>
   );
@@ -50,6 +70,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     justifyContent: "center",
+    alignItems: "center",
     resizeMode: "cover",
   },
   overlay: {

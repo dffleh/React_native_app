@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.dffleh.reactNativeMincraft"
@@ -35,7 +33,6 @@
     }
   },
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-1728967763465520/1444282600",
-    "ios_app_id": "ca-app-pub-1728967763465520/4977738475"
+    "android_app_id": "ca-app-pub-1728967763465520~4201473735"
   }
 }

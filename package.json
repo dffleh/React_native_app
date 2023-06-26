@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^18.0.1",
+    "@react-navigation/native": "^6.1.6",
     "expo": "~48.0.18",
     "expo-dev-client": "~2.2.1",
     "expo-status-bar": "~1.4.4",
@@ -17,10 +18,15 @@
     "react-dom": "18.2.0",
     "react-native": "0.71.8",
     "react-native-google-mobile-ads": "^11.1.1",
-    "react-native-web": "~0.18.10"
+    "react-native-loading-spinner-overlay": "^3.0.1",
+    "react-native-web": "~0.18.10",
+    "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
+  },
+  "overrides": {
+    "react-devtools-core": "~4.25.0"
   },
   "private": true
 }

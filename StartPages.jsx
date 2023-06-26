@@ -14,7 +14,7 @@ import {
 
 const adUnitId = __DEV__
   ? TestIds.BANNER
-  : "ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy";
+  : "ca-app-pub-1728967763465520/6218244519";
 
 const StartPage = () => {
   const handleStartPress = () => {};
@@ -26,10 +26,6 @@ const StartPage = () => {
   const handleImageError = () => {
     setImageError(true);
   };
-
-  // const adUnitId = __DEV__
-  //   ? TestIds.BANNER
-  //   : "ca-app-pub-1728967763465520/6391726644";
 
   return (
     <View style={styles.container}>
@@ -50,13 +46,15 @@ const StartPage = () => {
         <TouchableOpacity style={styles.button} onPress={handleExitPress}>
           <Text style={styles.buttonText}>Exit</Text>
         </TouchableOpacity>
-        <BannerAd
-          unitId={adUnitId}
-          size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-          requestOptions={{
-            requestNonPersonalizedAdsOnly: true,
-          }}
-        />
+        <View style={styles.ads}>
+          <BannerAd
+            unitId={adUnitId}
+            size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: true,
+            }}
+          />
+        </View>
       </ImageBackground>
     </View>
   );
@@ -100,6 +98,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#000",
     textAlign: "center",
+  },
+  ads: {
+    position: "absolute",
+    bottom: 10,
   },
 });
 

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import "expo-dev-client";
+import StartPage from "./components/StartPages";
 
-import StartPage from "./StartPages";
 // startAds = "ca-app-pub-1728967763465520/2459781141"
 // interstitial ad "ca-app-pub-1728967763465520/5298874899"
 // rewarded ad "ca-app-pub-1728967763465520/9227551232"

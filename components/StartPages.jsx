@@ -5,6 +5,7 @@ import {
   View,
   ImageBackground,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import {
   GAMBannerAd,
@@ -12,6 +13,9 @@ import {
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
+import { Dimensions } from "react-native";
+import HeaderAllApp from "./Header";
+import FooterAllApp from "./Footer";
 
 const adUnitId = __DEV__
   ? TestIds.BANNER
@@ -20,32 +24,8 @@ const adUnitId = __DEV__
 const StartPage = () => {
   const handleStartPress = () => {};
 
-  const handleExitPress = () => {
-    // Handle the exit button press here
-  };
-
   const handleImageError = () => {
     setImageError(true);
-  };
-
-  // Функція для переходу на сторінку з модами
-  const goToModsPage = () => {
-    // Виконати дії для переходу на сторінку з модами
-  };
-
-  // Функція для переходу на сторінку з міні іграми
-  const goToMiniGamesPage = () => {
-    // Виконати дії для переходу на сторінку з міні іграми
-  };
-
-  // Функція для переходу на головну сторінку
-  const goToHomePage = () => {
-    // Виконати дії для переходу на головну сторінку
-  };
-
-  // Функція для відкриття налаштувань
-  const openSettings = () => {
-    // Виконати дії для відкриття налаштувань
   };
 
   return (
@@ -56,98 +36,109 @@ const StartPage = () => {
         style={styles.backgroundImage}
       >
         <View style={styles.overlay} />
-        <View style={styles.header}>
-          <View style={styles.coinContainer}>
-            <Text style={styles.coinText}>100 Coin</Text>
+        <HeaderAllApp />
+        <ScrollView contentContainerStyle={styles.containerScrol}>
+          <Text style={styles.welcomeText}>Welcome to the Game Info App!</Text>
+
+          <Text style={styles.title}>Minecraft Companion</Text>
+          <View style={styles.ads}>
+            <GAMBannerAd
+              unitId={adUnitId}
+              sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
+              requestOptions={{
+                requestNonPersonalizedAdsOnly: true,
+              }}
+            />
           </View>
+          <Text style={styles.description}>
+            Ласкаво просимо до Minecraft Companion! Цей додаток призначений для
+            покращення вашого досвіду гри Minecraft. Він надає доступ до модів,
+            мап, скінів, актуальної інформації про гру, міні-ігор та внутрішньої
+            валюти MCoin. Використовуйте додаток, щоб знайти нові можливості і
+            насолоджуватися грою у Minecraft ще більше!
+          </Text>
+          <Text style={styles.description}>
+            Інші функції додатку включають можливість зберігати ваші улюблені
+            моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
+            виконуючи різноманітні завдання та переглядаючи рекламу.
+            Використовуйте всі ці можливості, щоб підвищити свою геймплейну
+            валюту та насолоджуватися грою Minecraft ще більше!
+          </Text>
+          <View style={styles.ads}>
+            <GAMBannerAd
+              unitId={adUnitId}
+              sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
+              requestOptions={{
+                requestNonPersonalizedAdsOnly: true,
+              }}
+            />
+          </View>
+          <Text style={styles.description}>
+            Інші функції додатку включають можливість зберігати ваші улюблені
+            моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
+            виконуючи різноманітні завдання та переглядаючи рекламу.
+            Використовуйте всі ці можливості, щоб підвищити свою геймплейну
+            валюту та насолоджуватися грою Minecraft ще більше!
+          </Text>
+          <Text style={styles.description}>
+            Інші функції додатку включають можливість зберігати ваші улюблені
+            моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
+            виконуючи різноманітні завдання та переглядаючи рекламу.
+            Використовуйте всі ці можливості, щоб підвищити свою геймплейну
+            валюту та насолоджуватися грою Minecraft ще більше!
+          </Text>
+          <View style={styles.ads}>
+            <GAMBannerAd
+              unitId={adUnitId}
+              sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
+              requestOptions={{
+                requestNonPersonalizedAdsOnly: true,
+              }}
+            />
+          </View>
+          <Text style={styles.description}>
+            Інші функції додатку включають можливість зберігати ваші улюблені
+            моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
+            виконуючи різноманітні завдання та переглядаючи рекламу.
+            Використовуйте всі ці можливості, щоб підвищити свою геймплейну
+            валюту та насолоджуватися грою Minecraft ще більше!
+          </Text>
+
           <TouchableOpacity
-            style={styles.settingsButton}
-            onPress={openSettings}
+            title="Show Interstitial"
+            style={styles.button}
+            onPress={handleStartPress}
           >
-            <Text style={styles.buttonText}>Set</Text>
+            <Text style={styles.buttonText}>ADS</Text>
           </TouchableOpacity>
-        </View>
-        <Text style={styles.welcomeText}>Welcome to the Game Info App!</Text>
-        <TouchableOpacity
-          title="Show Interstitial"
-          style={styles.button}
-          onPress={handleStartPress}
-        >
-          <Text style={styles.buttonText}>Start</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleExitPress}>
-          <Text style={styles.buttonText}>Exit</Text>
-        </TouchableOpacity>
-        <View style={styles.ads}>
-          <GAMBannerAd
-            unitId={adUnitId}
-            sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
-            requestOptions={{
-              requestNonPersonalizedAdsOnly: true,
-            }}
-          />
-        </View>
-        <View style={styles.footer}>
-          {/* Три кнопки в нижній частині */}
-          <TouchableOpacity style={styles.footerButton} onPress={goToHomePage}>
-            {/* Кнопка для переходу на головну сторінку */}
-            {/* Додайте іконку або текст для кнопки */}
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.footerButton} onPress={goToModsPage}>
-            {/* Кнопка для переходу на сторінку з модами */}
-            {/* Додайте іконку або текст для кнопки */}
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.footerButton}
-            onPress={goToMiniGamesPage}
-          >
-            {/* Кнопка для переходу на сторінку з міні іграми */}
-            {/* Додайте іконку або текст для кнопки */}
-          </TouchableOpacity>
-        </View>
+
+          <View style={styles.ads}>
+            <GAMBannerAd
+              unitId={adUnitId}
+              sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
+              requestOptions={{
+                requestNonPersonalizedAdsOnly: true,
+              }}
+            />
+          </View>
+        </ScrollView>
+        <FooterAllApp />
       </ImageBackground>
     </View>
   );
 };
 
+const windowWidth = Dimensions.get("window").width;
+
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#ffffff" },
   backgroundImage: {
     flex: 1,
-    // justifyContent: "space-around",
-    // alignItems: "center",
     resizeMode: "cover",
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "flex-end",
-    width: "100%",
-    height: 80,
-    backgroundColor: "#cdd838",
-  },
-  settingsButton: {
-    width: 40,
-    height: 40,
-    justifyContent: "center",
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    position: "absolute",
-    right: "5%",
-  },
-  coinContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 10,
-    backgroundColor: "#b42020",
-  },
-  coinText: {
-    textAlign: "center",
-    color: "#fff",
   },
   welcomeText: {
     justifyContent: "center",
@@ -159,7 +150,7 @@ const styles = StyleSheet.create({
   button: {
     width: 150,
     height: 40,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffbc06",
     borderRadius: 10,
     textAlign: "center",
     justifyContent: "center",
@@ -175,24 +166,34 @@ const styles = StyleSheet.create({
   },
   ads: {
     alignItems: "center",
-    padding: 24,
-    backgroundColor: "#6ff1ca",
-    // width: "100%",
-    // position: "absolute",
-    // bottom: 10,
+    padding: 12,
+    backgroundColor: "#ffbc06",
     borderRadius: 20,
   },
-  footer: {
-    height: 40,
-    width: "100%",
-    backgroundColor: "#fff",
-    // flexDirection: "row",
-    justifyContent: "flex-end",
-    // alignItems: "center",
-    // paddingBottom: 16,
+  containerScrol: {
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+    paddingBottom: 120,
   },
-  footerButton: {
-    // Стилі для кнопок в нижній частині
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: "#ffbc06",
+  },
+  description: {
+    fontSize: 18,
+    textAlign: "center",
+    marginBottom: 20,
+    color: "#fff",
+  },
+  link: {
+    fontSize: 16,
+    color: "blue",
+    textDecorationLine: "underline",
+    color: "#fff",
   },
 });
 

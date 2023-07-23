@@ -44,7 +44,7 @@ const StartPage = () => {
           <View style={styles.ads}>
             <GAMBannerAd
               unitId={adUnitId}
-              sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
+              sizes={[BannerAdSize.MEDIUM_RECTANGLE, BannerAdSize.FULL_BANNER]}
               requestOptions={{
                 requestNonPersonalizedAdsOnly: true,
               }}
@@ -67,12 +67,19 @@ const StartPage = () => {
           <View style={styles.ads}>
             <GAMBannerAd
               unitId={adUnitId}
-              sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
+              sizes={[BannerAdSize.BANNER, BannerAdSize.FULL_BANNER]}
               requestOptions={{
                 requestNonPersonalizedAdsOnly: true,
               }}
             />
           </View>
+          <Text style={styles.description}>
+            Інші функції додатку включають можливість зберігати ваші улюблені
+            моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
+            виконуючи різноманітні завдання та переглядаючи рекламу.
+            Використовуйте всі ці можливості, щоб підвищити свою геймплейну
+            валюту та насолоджуватися грою Minecraft ще більше!
+          </Text>
           <Text style={styles.description}>
             Інші функції додатку включають можливість зберігати ваші улюблені
             моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
@@ -96,30 +103,14 @@ const StartPage = () => {
               }}
             />
           </View>
-          <Text style={styles.description}>
-            Інші функції додатку включають можливість зберігати ваші улюблені
-            моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
-            виконуючи різноманітні завдання та переглядаючи рекламу.
-            Використовуйте всі ці можливості, щоб підвищити свою геймплейну
-            валюту та насолоджуватися грою Minecraft ще більше!
-          </Text>
-
-          <TouchableOpacity
-            title="Show Interstitial"
-            style={styles.button}
-            onPress={handleStartPress}
-          >
-            <Text style={styles.buttonText}>ADS</Text>
-          </TouchableOpacity>
-
-          <View style={styles.ads}>
-            <GAMBannerAd
-              unitId={adUnitId}
-              sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
-              requestOptions={{
-                requestNonPersonalizedAdsOnly: true,
-              }}
-            />
+          <View style={styles.btnMore}>
+            <TouchableOpacity
+              title="Show Interstitial"
+              style={styles.button}
+              onPress={handleStartPress}
+            >
+              <Text style={styles.buttonText}>Soon...</Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
         <FooterAllApp />
@@ -163,6 +154,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#000",
     textAlign: "center",
+  },
+  btnMore: {
+    marginTop: 10,
   },
   ads: {
     alignItems: "center",

@@ -8,9 +8,11 @@ const HeaderAllApp = () => {
 
   return (
     <View style={styles.header}>
-      <View style={styles.coinContainer}>
-        <Text style={styles.coinText}>100 Coin</Text>
-      </View>
+      <TouchableOpacity style={styles.coinContainer} onPress={openSettings}>
+        <Text style={styles.coinText}>
+          <Text style={styles.coinPlus}>+</Text> 100 Coin
+        </Text>
+      </TouchableOpacity>
       <TouchableOpacity style={styles.settingsButton} onPress={openSettings}>
         <Text style={styles.buttonText}>Set</Text>
       </TouchableOpacity>
@@ -37,15 +39,20 @@ const styles = StyleSheet.create({
     right: "5%",
   },
   coinContainer: {
-    width: 40,
+    width: 120,
     height: 40,
     borderRadius: 10,
-    backgroundColor: "#b42020",
+    justifyContent: "center",
+    backgroundColor: "#444444",
   },
   coinText: {
+    fontSize: 18,
+    fontWeight: "bold",
     textAlign: "center",
+    justifyContent: "center",
     color: "#fff",
   },
+  coinPlus: { color: "#ffbc06" },
   buttonText: {
     fontSize: 18,
     fontWeight: "bold",

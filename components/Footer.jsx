@@ -28,13 +28,11 @@ const FooterAllApp = () => {
           <View style={styles.face2} />
           <Text style={styles.buttonTextB}>Mods</Text>
         </TouchableOpacity>
-
         <TouchableOpacity style={styles.hexagonButton} onPress={goToStartPage}>
           <View style={styles.face1} />
           <View style={styles.face2} />
           <Text style={styles.buttonTextB}>Home</Text>
         </TouchableOpacity>
-
         <TouchableOpacity
           style={styles.hexagonButton}
           onPress={goToMiniGamesPage}

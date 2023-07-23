@@ -3,6 +3,8 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import "expo-dev-client";
 import StartPage from "./components/StartPages";
+import GamesPage from "./components/GamesPage";
+import ModsPage from "./components/ModsPage";
 
 // startAds = "ca-app-pub-1728967763465520/2459781141"
 // interstitial ad "ca-app-pub-1728967763465520/5298874899"
@@ -12,7 +14,9 @@ import StartPage from "./components/StartPages";
 export default function App() {
   return (
     <View style={styles.container}>
-      <StartPage />
+      <ModsPage />
+      {/* <StartPage /> */}
+      {/* <GamesPage /> */}
       <StatusBar style="auto" />
     </View>
   );

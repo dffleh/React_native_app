@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   settingsButton: {
     width: 40,
     height: 40,
+    bottom: 5,
     justifyContent: "center",
     backgroundColor: "#fff",
     borderRadius: 10,
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
   coinContainer: {
     width: 120,
     height: 40,
+    bottom: 5,
     borderRadius: 10,
     justifyContent: "center",
     backgroundColor: "#444444",

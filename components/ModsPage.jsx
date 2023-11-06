@@ -14,9 +14,7 @@ import {
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
-import { Dimensions } from "react-native";
-import HeaderAllApp from "./Header";
-import FooterAllApp from "./Footer";
+import { OVERLAY_BACKDROP } from "../appConstants";
 
 const adUnitId = __DEV__
   ? TestIds.BANNER
@@ -25,106 +23,149 @@ const adUnitId = __DEV__
 const ModsPage = () => {
   const handleStartPress = () => {};
 
-  const handleImageError = () => {
-    setImageError(true);
-  };
-
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={require("../images/backgroundPokemon-min.png")}
-        onError={handleImageError}
-        style={styles.backgroundImage}
-      >
-        <View style={styles.overlay} />
-        <HeaderAllApp />
-        <ScrollView contentContainerStyle={styles.containerScrol}>
-          <View style={styles.ads}>
-            <GAMBannerAd
-              unitId={adUnitId}
-              sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
-              requestOptions={{
-                requestNonPersonalizedAdsOnly: true,
-              }}
-            />
+      <View style={styles.overlay} />
+      <ScrollView contentContainerStyle={styles.containerScrol}>
+        <View style={styles.ads}>
+          <GAMBannerAd
+            unitId={adUnitId}
+            sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: true,
+            }}
+          />
+        </View>
+        <View style={styles.gridContainer}>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPixelmon-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
           </View>
-          <View style={styles.gridContainer}>
-            <View style={styles.grid}>
-              <TouchableOpacity style={styles.hexagonButton}>
-                <ImageBackground
-                  source={require("../images/previewPixelmon-min.png")}
-                  style={styles.backgroundImageMod}
-                >
-                  <Text style={styles.buttonTextB}>Mods</Text>
-                </ImageBackground>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.grid}>
-              <TouchableOpacity style={styles.hexagonButton}>
-                <ImageBackground
-                  source={require("../images/previewPokeBase-min.png")}
-                  style={styles.backgroundImageMod}
-                >
-                  <Text style={styles.buttonTextB}>Mods</Text>
-                </ImageBackground>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.grid}>
-              <TouchableOpacity style={styles.hexagonButton}>
-                <ImageBackground
-                  source={require("../images/previewPokedrockAnime-min.png")}
-                  style={styles.backgroundImageMod}
-                >
-                  <Text style={styles.buttonTextB}>Mods</Text>
-                </ImageBackground>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.grid}>
-              <TouchableOpacity style={styles.hexagonButton}>
-                <ImageBackground
-                  source={require("../images/previewPokemonBP-min.png")}
-                  style={styles.backgroundImageMod}
-                >
-                  <Text style={styles.buttonTextB}>Mods</Text>
-                </ImageBackground>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.grid}>
-              <TouchableOpacity style={styles.hexagonButton}>
-                <ImageBackground
-                  source={require("../images/previewPokemonRP-min.png")}
-                  style={styles.backgroundImageMod}
-                >
-                  <Text style={styles.buttonTextB}>Mods</Text>
-                </ImageBackground>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.grid}>
-              <TouchableOpacity style={styles.hexagonButton}>
-                <ImageBackground
-                  source={require("../images/backgroundPokemon-min.png")}
-                  style={styles.backgroundImageMod}
-                >
-                  <Text style={styles.buttonTextB}>Mods</Text>
-                </ImageBackground>
-              </TouchableOpacity>
-            </View>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPokeBase-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
           </View>
-        </ScrollView>
-        <FooterAllApp />
-      </ImageBackground>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPokedrockAnime-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPokemonBP-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPokemonRP-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/backgroundPokemon-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPixelmon-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPixelmon-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPixelmon-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPixelmon-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPixelmon-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.grid}>
+            <TouchableOpacity style={styles.hexagonButton}>
+              <ImageBackground
+                source={require("../images/previewPixelmon-min.png")}
+                style={styles.backgroundImageMod}
+              >
+                <Text style={styles.buttonTextB}>Mods</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };
 
-const windowWidth = Dimensions.get("window").width;
-
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#ffffff" },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: "cover",
-  },
+  container: { flex: 1 },
+
   backgroundImageMod: {
     resizeMode: "cover",
     width: "100%",
@@ -134,7 +175,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: OVERLAY_BACKDROP,
   },
   ads: {
     alignItems: "center",

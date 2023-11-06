@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  ImageBackground,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
@@ -13,9 +12,7 @@ import {
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
-import { Dimensions } from "react-native";
-import HeaderAllApp from "./Header";
-import FooterAllApp from "./Footer";
+import { OVERLAY_BACKDROP } from "../appConstants";
 
 const adUnitId = __DEV__
   ? TestIds.BANNER
@@ -30,106 +27,91 @@ const StartPage = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={require("../images/lachlan-dempsey-6VPEOdpFNAs-unsplash.png")}
-        onError={handleImageError}
-        style={styles.backgroundImage}
-      >
-        <View style={styles.overlay} />
-        <HeaderAllApp />
-        <ScrollView contentContainerStyle={styles.containerScrol}>
-          <Text style={styles.welcomeText}>Welcome to the Game Info App!</Text>
-
-          <Text style={styles.title}>Minecraft Companion</Text>
-          <View style={styles.ads}>
-            <GAMBannerAd
-              unitId={adUnitId}
-              sizes={[BannerAdSize.MEDIUM_RECTANGLE, BannerAdSize.FULL_BANNER]}
-              requestOptions={{
-                requestNonPersonalizedAdsOnly: true,
-              }}
-            />
-          </View>
-          <Text style={styles.description}>
-            Ласкаво просимо до Minecraft Companion! Цей додаток призначений для
-            покращення вашого досвіду гри Minecraft. Він надає доступ до модів,
-            мап, скінів, актуальної інформації про гру, міні-ігор та внутрішньої
-            валюти MCoin. Використовуйте додаток, щоб знайти нові можливості і
-            насолоджуватися грою у Minecraft ще більше!
-          </Text>
-          <Text style={styles.description}>
-            Інші функції додатку включають можливість зберігати ваші улюблені
-            моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
-            виконуючи різноманітні завдання та переглядаючи рекламу.
-            Використовуйте всі ці можливості, щоб підвищити свою геймплейну
-            валюту та насолоджуватися грою Minecraft ще більше!
-          </Text>
-          <View style={styles.ads}>
-            <GAMBannerAd
-              unitId={adUnitId}
-              sizes={[BannerAdSize.BANNER, BannerAdSize.FULL_BANNER]}
-              requestOptions={{
-                requestNonPersonalizedAdsOnly: true,
-              }}
-            />
-          </View>
-          <Text style={styles.description}>
-            Інші функції додатку включають можливість зберігати ваші улюблені
-            моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
-            виконуючи різноманітні завдання та переглядаючи рекламу.
-            Використовуйте всі ці можливості, щоб підвищити свою геймплейну
-            валюту та насолоджуватися грою Minecraft ще більше!
-          </Text>
-          <Text style={styles.description}>
-            Інші функції додатку включають можливість зберігати ваші улюблені
-            моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
-            виконуючи різноманітні завдання та переглядаючи рекламу.
-            Використовуйте всі ці можливості, щоб підвищити свою геймплейну
-            валюту та насолоджуватися грою Minecraft ще більше!
-          </Text>
-          <Text style={styles.description}>
-            Інші функції додатку включають можливість зберігати ваші улюблені
-            моди та мапи, створювати свої власні міні-ігри та заробляти MCoin,
-            виконуючи різноманітні завдання та переглядаючи рекламу.
-            Використовуйте всі ці можливості, щоб підвищити свою геймплейну
-            валюту та насолоджуватися грою Minecraft ще більше!
-          </Text>
-          <View style={styles.ads}>
-            <GAMBannerAd
-              unitId={adUnitId}
-              sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
-              requestOptions={{
-                requestNonPersonalizedAdsOnly: true,
-              }}
-            />
-          </View>
-          <View style={styles.btnMore}>
-            <TouchableOpacity
-              title="Show Interstitial"
-              style={styles.button}
-              onPress={handleStartPress}
-            >
-              <Text style={styles.buttonText}>Soon...</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-        <FooterAllApp />
-      </ImageBackground>
+      <View style={styles.overlay} />
+      <ScrollView contentContainerStyle={styles.containerScrol}>
+        <Text style={styles.welcomeText}>Welcome to the Game Info App!</Text>
+        <Text style={styles.title}>Minecraft Companion</Text>
+        <View style={styles.ads}>
+          <GAMBannerAd
+            unitId={adUnitId}
+            sizes={[BannerAdSize.MEDIUM_RECTANGLE, BannerAdSize.FULL_BANNER]}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: true,
+            }}
+          />
+        </View>
+        <Text style={styles.description}>
+          Ласкаво просимо до Minecraft Companion! Цей додаток призначений для
+          покращення вашого досвіду гри Minecraft. Він надає доступ до модів,
+          мап, скінів, актуальної інформації про гру, міні-ігор та внутрішньої
+          валюти MCoin. Використовуйте додаток, щоб знайти нові можливості і
+          насолоджуватися грою у Minecraft ще більше!
+        </Text>
+        <Text style={styles.description}>
+          Інші функції додатку включають можливість зберігати ваші улюблені моди
+          та мапи, створювати свої власні міні-ігри та заробляти MCoin,
+          виконуючи різноманітні завдання та переглядаючи рекламу.
+          Використовуйте всі ці можливості, щоб підвищити свою геймплейну валюту
+          та насолоджуватися грою Minecraft ще більше!
+        </Text>
+        <View style={styles.ads}>
+          <GAMBannerAd
+            unitId={adUnitId}
+            sizes={[BannerAdSize.BANNER, BannerAdSize.FULL_BANNER]}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: true,
+            }}
+          />
+        </View>
+        <Text style={styles.description}>
+          Інші функції додатку включають можливість зберігати ваші улюблені моди
+          та мапи, створювати свої власні міні-ігри та заробляти MCoin,
+          виконуючи різноманітні завдання та переглядаючи рекламу.
+          Використовуйте всі ці можливості, щоб підвищити свою геймплейну валюту
+          та насолоджуватися грою Minecraft ще більше!
+        </Text>
+        <Text style={styles.description}>
+          Інші функції додатку включають можливість зберігати ваші улюблені моди
+          та мапи, створювати свої власні міні-ігри та заробляти MCoin,
+          виконуючи різноманітні завдання та переглядаючи рекламу.
+          Використовуйте всі ці можливості, щоб підвищити свою геймплейну валюту
+          та насолоджуватися грою Minecraft ще більше!
+        </Text>
+        <Text style={styles.description}>
+          Інші функції додатку включають можливість зберігати ваші улюблені моди
+          та мапи, створювати свої власні міні-ігри та заробляти MCoin,
+          виконуючи різноманітні завдання та переглядаючи рекламу.
+          Використовуйте всі ці можливості, щоб підвищити свою геймплейну валюту
+          та насолоджуватися грою Minecraft ще більше!
+        </Text>
+        <View style={styles.ads}>
+          <GAMBannerAd
+            unitId={adUnitId}
+            sizes={[BannerAdSize.LARGE_BANNER, BannerAdSize.FULL_BANNER]}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: true,
+            }}
+          />
+        </View>
+        <View style={styles.btnMore}>
+          <TouchableOpacity
+            title="Show Interstitial"
+            style={styles.button}
+            onPress={handleStartPress}
+          >
+            <Text style={styles.buttonText}>Soon...</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </View>
   );
 };
 
-const windowWidth = Dimensions.get("window").width;
-
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#ffffff" },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: "cover",
-  },
+  container: { flex: 1 },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: OVERLAY_BACKDROP,
   },
   welcomeText: {
     justifyContent: "center",

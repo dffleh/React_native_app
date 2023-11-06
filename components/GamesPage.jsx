@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import {
   GAMBannerAd,
   BannerAd,
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
-import { Dimensions } from "react-native";
-import HeaderAllApp from "./Header";
-import FooterAllApp from "./Footer";
+import { OVERLAY_BACKDROP } from "../appConstants";
 
 const adUnitId = __DEV__
   ? TestIds.BANNER
@@ -30,42 +21,32 @@ const StartPage = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={require("../images/lachlan-dempsey-6VPEOdpFNAs-unsplash.png")}
-        onError={handleImageError}
-        style={styles.backgroundImage}
-      >
-        <View style={styles.overlay} />
-        <HeaderAllApp />
-        <ScrollView contentContainerStyle={styles.containerScrol}>
-          <View style={styles.ads}>
-            <GAMBannerAd
-              unitId={adUnitId}
-              sizes={[BannerAdSize.MEDIUM_RECTANGLE, BannerAdSize.FULL_BANNER]}
-              requestOptions={{
-                requestNonPersonalizedAdsOnly: true,
-              }}
-            />
-          </View>
-          <Text style={styles.title}>Coming soon ... </Text>
-        </ScrollView>
-        <FooterAllApp />
-      </ImageBackground>
+      <View style={styles.overlay} />
+      <ScrollView contentContainerStyle={styles.containerScrol}>
+        <View style={styles.ads}>
+          <GAMBannerAd
+            unitId={adUnitId}
+            sizes={[BannerAdSize.MEDIUM_RECTANGLE, BannerAdSize.FULL_BANNER]}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: true,
+            }}
+          />
+        </View>
+        <Text style={styles.title}>Coming soon ... </Text>
+      </ScrollView>
     </View>
   );
 };
 
-const windowWidth = Dimensions.get("window").width;
-
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#ffffff" },
+  container: { flex: 1 },
   backgroundImage: {
     flex: 1,
     resizeMode: "cover",
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: OVERLAY_BACKDROP,
   },
   welcomeText: {
     justifyContent: "center",
@@ -95,7 +76,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   ads: {
-    width: windowWidth,
+    width: "100%",
     alignItems: "center",
     padding: 12,
     backgroundColor: "#ffbc06",
